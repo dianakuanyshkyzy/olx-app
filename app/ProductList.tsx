@@ -45,14 +45,20 @@ const ProductList = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
       {products.map((product) => (
-        <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
-          <p>{product.description}</p>
-          <p className="font-bold text-lg mt-2">Price: ${product.price.toFixed(2)}</p>
+        <div key={product.id} className="product-container">
+          <h2>{product.title}</h2>
+          <p className="product-description">{product.description}</p>
+          <p>Price: ${product.price.toFixed(2)}</p>
           {isValidUrl(product.image) ? (
-            <Image src={product.image} alt={product.title} width={200} height={200} className="rounded-md" />
+            <Image
+              src={product.image}
+              alt={product.title}
+              width={48}
+              height={48}
+              className="product-image"
+            />
           ) : (
             <p>Invalid image URL</p>
           )}

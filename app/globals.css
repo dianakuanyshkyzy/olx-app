@@ -22,6 +22,20 @@ p {
   margin: 0;
 }
 
+.product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-image {
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+}
+
 div {
   padding: 1rem;
 }
