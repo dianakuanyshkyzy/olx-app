@@ -24,10 +24,10 @@ The project is deployed and can be accessed at: https://olx-app-rho.vercel.app/
 
 ### Installation
 
-    ```sh
+```sh
     git clone https://github.com/dianakuanyshkyzy/olx-app.git
     cd olx-app
     npm install
     npm run dev
-    ```
+```
 The app will be available at http://localhost:3000.
