@@ -7,9 +7,8 @@ type Product = {
   id: number;
   title: string;
   price: number;
-  description: string;
-  image: string;
-  category: string;
+  location_date: string;
+  imag: string;
 };
 
 const isValidUrl = (url: string) => {
@@ -49,11 +48,11 @@ const ProductList = () => {
       {products.map((product) => (
         <div key={product.id} className="product-container">
           <h2>{product.title}</h2>
-          <p className="product-description">{product.description}</p>
+          <p className="product-description">{product.location_date}</p>
           <p>Price: ${product.price.toFixed(2)}</p>
-          {isValidUrl(product.image) ? (
+          {isValidUrl(product.imag) ? (
             <Image
-              src={product.image}
+              src={product.imag}
               alt={product.title}
               width={48}
               height={48}

@@ -11,18 +11,16 @@ type ProductFormProps = {
 type Product = {
   id: number;
   title: string;
-  price: number;
-  description: string;
-  image: string;
-  category: string;
+  prices: number;
+  location_date: string;
+  imag: string;
 };
 
 const ProductForm: React.FC<ProductFormProps> = ({ onProductCreated }) => {
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
+  const [location_date, setLoc] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -38,10 +36,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onProductCreated }) => {
       }
     }
 
-    const product = { title, price: parseFloat(price), description, image: imageUrl, category };
+    const product = { title, price: parseFloat(price), location_date, imag: imageUrl };
 
     try {
-      const response = await axiosInstance.post('/products', product);
+      const response = await axiosInstance.post('/', product);
       setMessage('Product created successfully!');
       onProductCreated(response.data);
     } catch (error) {
@@ -74,10 +72,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onProductCreated }) => {
         />
       </div>
       <div className="mb-4">
-        <label className="block mb-2">Description</label>
+        <label className="block mb-2">Location_date</label>
         <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={location_date}
+          onChange={(e) => setLoc(e.target.value)}
           required
           className="w-full p-2 border rounded hover:border-gray-500"
         />
@@ -91,16 +89,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onProductCreated }) => {
           className="w-full p-2 border rounded hover:border-gray-500"
         />
       </div>
-      <div className="mb-4">
-        <label className="block mb-2">Category</label>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          required
-          className="w-full p-2 border rounded hover:border-gray-500"
-        />
-      </div>
+
       <button type="submit" className="w-full bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg">
         Create Product
       </button>
