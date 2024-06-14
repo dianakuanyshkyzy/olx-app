@@ -21,6 +21,7 @@ The project is deployed and can be accessed at: https://olx-app-rho.vercel.app/
 - Tailwind CSS
 - Axios
 - Vercel
+- Cheerio
 
 ### Installation
 
@@ -31,3 +32,7 @@ The project is deployed and can be accessed at: https://olx-app-rho.vercel.app/
     npm run dev
 ```
 The app will be available at http://localhost:3000.
+
+## ADDED
+
+Parsing data from the actual OLX website and analyzing the marketplace
